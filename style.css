@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section {
+  height: 100vh;
+  background-color: rgb(130, 169, 170);
+}
+
+.money-exp {
+  height: 20vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.money-exp h2 {
+  font-size: 35px;
+}
+
+.money-exp p {
+  text-align: center;
+  padding: 2px;
+  font-size: 25px;
+}
+
+.intro {
+  color: aliceblue;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  transition: opacity 0.5s ease;
+}
+
+.intro h1 {
+  font-size: 50px;
+}
+
+.intro button {
+  width: 90px;
+  height: 35px;
+  background: none;
+  border: none;
+  color: aliceblue;
+  font-size: 15px;
+  background: rgb(30, 130, 40);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.options button {
+  width: 90px;
+  height: 35px;
+  background: none;
+  border: none;
+  color: aliceblue;
+  font-size: 15px;
+  background: rgb(30, 130, 40);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.wave {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  transition: opacity 0.5s ease 0.5s;
+}
+.turtleDeath {
+  color: aliceblue;
+  text-align: center;
+  font-size: 35px;
+  padding: 0px;
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  padding: 1cm;
+}
+
+.characters {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0px;
+  align-items: center;
+}
+
+.attention {
+  font-size: medium;
+  text-align: center;
+  color: crimson;
+}
+
+div.fadeOut {
+  opacity: 0;
+  pointer-events: none;
+}
+
+div.fadeIn {
+  opacity: 1;
+  pointer-events: all;
+}
