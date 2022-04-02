@@ -16,8 +16,10 @@ const game = ()=> {
         playBtn.addEventListener("click", () => {
             introScreen.classList.add("fadeOut");
             wave.classList.add("fadeIn");
+            MusicLoop();
         });
         moneyExpHealth();
+        
     };
 
     //play match
@@ -67,6 +69,7 @@ const game = ()=> {
             else if(xp < 100*Lvl){
                 
                 const attention = document.querySelector(".attention");
+
                 attention.textContent = `you need ${100 * Lvl - xp} more xp to upgrade to lvl:${Lvl}`;
                 setTimeout(function(){
                     attention.textContent = ``;
@@ -102,6 +105,39 @@ const game = ()=> {
         };
         
     };
+//music and sound
+    var music = document.getElementById('music');
+    var MuteBtn = document.getElementById('Mute');
+    var count = 0;
+
+    function MusicLoop(){
+ 
+        music.loop = true;
+        music.play();
+
+    };
+
+    MuteBtn.addEventListener("click", () => {
+        MuteUnmute()
+        console.log(count);
+    });
+
+    function MuteUnmute(){
+
+        if(count === 1) {
+            music.play();
+            count = 0;
+            MuteBtn.textContent = `Mute Music`;
+        }
+        else if (count === 0){
+            music.pause();
+            count = 1;
+            MuteBtn.textContent = `Unmute Music`;
+        }
+
+    }
+    
+    
 
     
 
@@ -110,7 +146,6 @@ const game = ()=> {
     //is call all inner function
     startGame();
     playWave();
-    
 };
 
 //start the game function
