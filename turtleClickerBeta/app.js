@@ -1,5 +1,5 @@
 const game = ()=> {
-    let currency = 0;
+    let currency = 4000;
     let xp = 0;
     let health = 10000;
     let playerDmg = 0.01;
@@ -17,6 +17,8 @@ const game = ()=> {
             introScreen.classList.add("fadeOut");
             wave.classList.add("fadeIn");
             MusicLoop();
+            MuteUnmute()
+            HideElements();
         });
         moneyExpHealth();
         
@@ -33,21 +35,22 @@ const game = ()=> {
     options.forEach((option)=>{
         option.addEventListener("click", function() {
             
-            choice(this.textContent);
-            moneyExpHealth();
+            choice(this.classList);
+            choice(console.log(this.classList));
             moneyExpHealth();
         });   
     });    
 };
 
+
     const choice = (playerChoice)=>{
-        if(playerChoice === "attack"){
+        if(playerChoice == 'attack'){
             health = Math.round((health - playerDmg) * 100) / 100;
             xp = Math.floor(xp + 10);
             currency = Math.round((currency + playerDmg) * 100) / 100;
         }
         
-        if(playerChoice === "upgrade"){
+        if(playerChoice == 'upgrade'){
             if(xp >= 100*Lvl){
                 if(Lvl <= 10 && Lvl != 10 ){
                     playerDmg = Math.round((playerDmg + 0.01) *100) / 100;
@@ -78,7 +81,9 @@ const game = ()=> {
             }
         }
 
-        if(playerChoice === "shop"){
+        if(playerChoice == 'shop'){
+            
+            ShopShow();
 
         }
     }
@@ -105,7 +110,46 @@ const game = ()=> {
         };
         
     };
-//music and sound
+
+    //Shop
+    Shopping = document.querySelector(".Shopping");
+    var exitBtn = document.querySelector('.exit');
+    var weapon1 = document.querySelector(".weapon1");
+    var item1 = document.querySelector(".item1 button")
+    
+    exitBtn.addEventListener("click", ()=> {
+        ShopHide();
+    });
+
+    item1.addEventListener("click", ()=> {
+        
+        if(weapon1.style.display != 'flex') {
+            if(currency >= 4000){
+            currency = Number((currency - 4000).toFixed(2))
+            weapon1.style.display = 'flex';
+            playerDmg = playerDmg + 100;
+            moneyExpHealth();
+            }else {
+                console.log("can't purchase that");
+            }
+        }
+        console.log(weapon1.style.display)
+    });
+
+    function HideElements() {
+        ShopHide();
+        weapon1.style.display = 'none';
+    }
+
+    function ShopHide() {
+        Shopping.style.display = 'none';
+    }
+
+    function ShopShow(){
+        Shopping.style.display = 'inline';
+    }
+
+    //music and sound
     var music = document.getElementById('music');
     var MuteBtn = document.getElementById('Mute');
     var count = 0;
@@ -113,7 +157,6 @@ const game = ()=> {
     function MusicLoop(){
  
         music.loop = true;
-        music.play();
 
     };
 

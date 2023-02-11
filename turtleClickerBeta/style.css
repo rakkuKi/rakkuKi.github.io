@@ -53,14 +53,8 @@ section {
 }
 
 .options button {
-  width: 90px;
-  height: 35px;
-  background: none;
-  border: none;
-  color: aliceblue;
-  font-size: 15px;
-  background: rgb(30, 130, 40);
-  border-radius: 2px;
+  transform: scale(2);
+  margin: 25px;
   cursor: pointer;
 }
 
@@ -80,15 +74,61 @@ section {
 
 .options {
   display: flex;
-  justify-content: center;
-  padding: 1cm;
+  justify-content: space-evenly;
+}
+
+.Shopping {
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  transform: translate(-50%, -40%);
+  transform: scale(1.25);
+  
+}
+
+.item1 {
+  position:fixed;
+  top: 10%;
+  right: 35%;
+}
+
+.item1 button{
+  position: flex;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.item1 img {
+  width: 75px;
+  height: 75px;
+}
+
+
+.item1 p {
+  position: relative;
+  text-align: center;
+  left: 0%;
+  top: 0%;
+  color: gold;
+}
+
+.exit {
+  position: absolute;
+  top: 0%;
+  right: 0%;
 }
 
 .characters {
-  display: flex;
+  display: inline-flex;
   justify-content: space-evenly;
   padding: 0px;
   align-items: center;
+}
+
+.weapon1 {
+  display: flex;
+  position: absolute;
+  transform: translate(0%, -100%);
 }
 
 .attention {
