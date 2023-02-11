@@ -1,5 +1,5 @@
 const game = ()=> {
-    let currency = 4000;
+    let currency = 0;
     let xp = 0;
     let health = 10000;
     let playerDmg = 0.01;
